@@ -8,3 +8,4 @@ victory if all commanders are defeated
 field affects units, spells and engineering
 all cards have range
 all units have attributes
+concentration spells

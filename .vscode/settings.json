@@ -96,10 +96,19 @@
     "qpixmap": "cpp",
     "qdir": "cpp",
     "qstring": "cpp",
-    "any": "cpp"
+    "any": "cpp",
+    "compare": "cpp",
+    "concepts": "cpp",
+    "numbers": "cpp",
+    "ranges": "cpp",
+    "stop_token": "cpp",
+    "semaphore": "cpp"
   },
   "C_Cpp.intelliSenseEngineFallback": "Enabled",
   "cSpell.enableFiletypes": [
     "cpp"
-  ]
+  ],
+  "files.watcherExclude": {
+    "**/target": true
+  }
 }

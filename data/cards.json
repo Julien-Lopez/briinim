@@ -1,0 +1,89 @@
+{
+  "units": [
+    {
+      "name": "Shaaron, the Resourceful",
+      "rank": 1,
+      "species": [ "Elf" ],
+      "attributes": [ "Cunning" ],
+      "atk": 2,
+      "range": 1,
+      "movement": 1,
+      "hp": 5,
+      "effects": [
+        {
+          "main": "draw(1)",
+          "after": "no_atk(this_turn)"
+        }
+      ]
+    },
+    {
+      "name": "Lokar, the Brute",
+      "rank": 1,
+      "species": [ "Human" ],
+      "attributes": [ "Fearless" ],
+      "atk": 6,
+      "range": 1,
+      "movement": 1,
+      "hp": 6,
+      "effects": [
+      ]
+    },
+    {
+      "name": "Banh, the Godly",
+      "rank": 1,
+      "species": [ "Dwarf" ],
+      "attributes": [ "Spellcaster" ],
+      "atk": 0,
+      "range": 1,
+      "movement": 1,
+      "hp": 6,
+      "effects": [
+        {
+          "main": "heal(3)",
+          "range": 2
+        }
+      ]
+    },
+    {
+      "name": "Mercenary",
+      "species": [ "Any" ],
+      "attributes": [ "" ],
+      "atk": 3,
+      "range": 1,
+      "movement": 1,
+      "hp": 3,
+      "effects": []
+    },
+    {
+      "name": "Archer",
+      "species": [ "Any" ],
+      "attributes": [ "" ],
+      "atk": 2,
+      "range": 2,
+      "movement": 1,
+      "hp": 2,
+      "effects": []
+    },
+    {
+      "name": "Rider",
+      "species": [ "Any" ],
+      "attributes": [ "" ],
+      "atk": 2,
+      "range": 1,
+      "movement": 2,
+      "hp": 2,
+      "effects": []
+    }
+  ],
+  "spells": [
+    {
+      "name": "Heal",
+      "effects": [
+        {
+          "main": "heal(2)",
+          "range": 1
+        }
+      ]
+    }
+  ]
+}

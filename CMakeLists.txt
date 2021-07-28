@@ -22,11 +22,24 @@ project(Briinim)
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Weverything")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic")
 
 add_executable(briinim
     src/briinim.cpp
+    src/CardsDB.cpp
+    src/card/Spell.h
+    src/card/Effect.h
+    src/card/Unit.h
+    src/card/Card.h
+    src/card/Species.h
+    src/card/Attribute.h
+    src/card/Unit.cpp
+    src/card/Attribute.cpp
+    src/card/Species.cpp
+    src/card/Card.cpp
+    src/CardsDB.h
 )
 target_compile_features(briinim PRIVATE cxx_std_20)
 set_property(TARGET briinim PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(briinim PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
+target_include_directories(briinim SYSTEM PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/third_party")
