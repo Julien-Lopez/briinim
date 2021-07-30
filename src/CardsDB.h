@@ -12,10 +12,10 @@ namespace briinim
 class CardsDB
 {
 public:
-    card::Card& operator[](const std::string &key);
-    const card::Card& operator[](const std::string &key) const;
-    card::Card& operator[](std::string &&key);
-    const card::Card& operator[](std::string &&key) const;
+    card::Card& operator[](const card::Card::key_t &key);
+    const card::Card& operator[](const card::Card::key_t &key) const;
+    card::Card& operator[](card::Card::key_t &&key);
+    const card::Card& operator[](card::Card::key_t &&key) const;
 
     void load_from_file(const std::filesystem::path &file);
 
@@ -31,7 +31,7 @@ private:
     static constexpr const char *s_movement_key = "movement";
     static constexpr const char *s_hp_key = "hp";
 
-    std::unordered_map<std::string, card::Card> m_db;
+    std::unordered_map<card::Card::key_t, card::Card> m_db;
 };
 
 } // namespace briinim

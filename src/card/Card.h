@@ -14,6 +14,8 @@ namespace card
 class Card
 {
 public:
+    using key_t = std::string;
+
     Card(const std::string name, const std::vector<Effect> effects);
 
     operator std::string() const;

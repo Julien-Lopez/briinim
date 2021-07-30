@@ -12,22 +12,22 @@ std::vector<card::Effect> effects_from_json(const nlohmann::json &json);
 std::vector<card::Species> species_from_json(const nlohmann::json &json);
 std::vector<card::Attribute> attributes_from_json(const nlohmann::json &json);
 
-card::Card& CardsDB::operator[](const std::string &key)
+card::Card& CardsDB::operator[](const card::Card::key_t &key)
 {
     return m_db.at(key);
 }
 
-const card::Card& CardsDB::operator[](const std::string &key) const
+const card::Card& CardsDB::operator[](const card::Card::key_t &key) const
 {
     return m_db.at(key);
 }
 
-card::Card& CardsDB::operator[](std::string &&key)
+card::Card& CardsDB::operator[](card::Card::key_t &&key)
 {
     return m_db.at(key);
 }
 
-const card::Card& CardsDB::operator[](std::string &&key) const
+const card::Card& CardsDB::operator[](card::Card::key_t &&key) const
 {
     return m_db.at(key);
 }

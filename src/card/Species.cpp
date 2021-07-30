@@ -12,4 +12,4 @@ Species species_from_string(const std::string &s)
         : Species::ANY;
 }
 
-}
+} // namespace card

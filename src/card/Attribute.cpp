@@ -11,4 +11,4 @@ Attribute attribute_from_string(const std::string &s)
         : Attribute::NORMAL;
 }
 
-}
+} // namespace card
