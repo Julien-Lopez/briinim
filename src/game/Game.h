@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Team.h"
+#include "game/Team.h"
 
 #include <vector>
 
