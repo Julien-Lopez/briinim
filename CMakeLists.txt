@@ -46,6 +46,8 @@ add_executable(briinim
     src/player/Deck.h
     src/player/Player.cpp
     src/player/Player.h
+    src/utils/logs/Logger.cpp
+    src/utils/logs/Logger.h
 )
 target_compile_features(briinim PRIVATE cxx_std_20)
 set_property(TARGET briinim PROPERTY POSITION_INDEPENDENT_CODE ON)

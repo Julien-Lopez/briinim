@@ -73,6 +73,21 @@
       "movement": 2,
       "hp": 2,
       "effects": []
+    },
+    {
+      "name": "Barbarian",
+      "species": [ "Any" ],
+      "attributes": [ "" ],
+      "atk": 1,
+      "range": 1,
+      "movement": 1,
+      "hp": 4,
+      "effects": [
+        {
+          "main": "atkup(1)",
+          "trigger": "hit"
+        }
+      ]
     }
   ],
   "spells": [

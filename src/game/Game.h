@@ -15,7 +15,7 @@ public:
     void start() const;
 
 private:
-    std::vector<Team> m_teams;
+    const std::vector<Team> m_teams;
 };
 
 } // namespace game
