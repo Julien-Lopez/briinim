@@ -22,7 +22,7 @@ project(Briinim)
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded")
 
 add_executable(briinim
     src/briinim.cpp
@@ -42,12 +42,16 @@ add_executable(briinim
     src/game/Game.h
     src/game/Team.cpp
     src/game/Team.h
+    src/globals.cpp
+    src/globals.h
     src/player/Deck.cpp
     src/player/Deck.h
     src/player/Player.cpp
     src/player/Player.h
     src/utils/logs/Logger.cpp
     src/utils/logs/Logger.h
+    src/utils/logs/ScopeLogger.cpp
+    src/utils/logs/ScopeLogger.h
 )
 target_compile_features(briinim PRIVATE cxx_std_20)
 set_property(TARGET briinim PROPERTY POSITION_INDEPENDENT_CODE ON)

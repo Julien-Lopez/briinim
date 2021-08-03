@@ -24,6 +24,7 @@ public:
      */
     enum class Type
     {
+        Scope, /** \brief Entering or exiting a code block. */
         Info, /** \brief Information on normal behavior. */
         VerboseInfo, /** \brief Verbose information on normal behavior. */
         Debug, /** \brief Debug information on normal behavior. */
@@ -34,8 +35,7 @@ public:
 
     explicit Logger(const std::filesystem::path path);
 
-    void log(const Module module, const Type type, const std::string &msg) const;
-    void log(const Module module, const Type type, std::string &&msg) const;
+    void operator()(const Module module, const Type type, const std::string &msg) const;
 
 private:
     const std::filesystem::path m_path;
