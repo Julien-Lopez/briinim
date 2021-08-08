@@ -1,26 +1,23 @@
 #pragma once
 
-#include "Deck.h"
-
 #include <string>
-#include <unordered_map>
 
 namespace player
 {
 
+class Profile;
+class Deck;
+
 class Player
 {
 public:
-    explicit Player(const std::string &name);
+    explicit Player(const Profile &profile, const unsigned deck_number);
 
-    void rename(const std::string &name);
-    void add_deck(const unsigned pos, const Deck &deck);
-    void add_deck(const unsigned pos, Deck &&deck);
-    void remove_deck(const unsigned pos);
+    const std::string &get_name() const;
 
 private:
-    std::string m_name;
-    std::unordered_map<unsigned, Deck> m_decks;
+    const Profile &m_profile;
+    const Deck &m_deck;
 };
 
 } // namespace player

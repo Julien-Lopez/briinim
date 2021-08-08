@@ -1,31 +1,19 @@
 #include "Player.h"
 
+#include "Profile.h"
+
 namespace player
 {
 
-Player::Player(const std::string &name)
-    : m_name(name)
+Player::Player(const Profile &profile, const unsigned deck_number)
+    : m_profile(profile),
+      m_deck(profile.get_deck(deck_number))
 {
 }
 
-void Player::rename(const std::string &name)
+const std::string &Player::get_name() const
 {
-    m_name = name;
-}
-
-void Player::add_deck(const unsigned pos, const Deck &deck)
-{
-    m_decks.emplace(pos, deck);
-}
-
-void Player::add_deck(const unsigned pos, Deck &&deck)
-{
-    m_decks.emplace(pos, deck);
-}
-
-void Player::remove_deck(const unsigned pos)
-{
-    m_decks.erase(pos);
+    return m_profile.get_name();
 }
 
 } // namespace player

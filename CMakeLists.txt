@@ -48,6 +48,8 @@ add_executable(briinim
     src/player/Deck.h
     src/player/Player.cpp
     src/player/Player.h
+    src/player/Profile.cpp
+    src/player/Profile.h
     src/utils/logs/Logger.cpp
     src/utils/logs/Logger.h
     src/utils/logs/ScopeLogger.cpp

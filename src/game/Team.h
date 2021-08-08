@@ -2,6 +2,9 @@
 
 #include "player/Player.h"
 
+#include <string>
+#include <vector>
+
 namespace game
 {
 
