@@ -38,12 +38,21 @@ add_executable(briinim
     src/card/Spell.h
     src/card/Unit.cpp
     src/card/Unit.h
+    src/game/Board.h
     src/game/Game.cpp
     src/game/Game.h
-    src/game/Team.cpp
-    src/game/Team.h
+    src/game/action/Action.h
+    src/game/action/EndTurn.h
+    src/game/action/Move.cpp
+    src/game/action/Move.h
+    src/game/Reactor.cpp
+    src/game/Reactor.h
     src/globals.cpp
     src/globals.h
+    src/player/brain/Brain.cpp
+    src/player/brain/Brain.h
+    src/player/brain/Human.cpp
+    src/player/brain/Human.h
     src/player/Deck.cpp
     src/player/Deck.h
     src/player/Player.cpp
