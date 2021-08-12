@@ -8,7 +8,7 @@
       "atk": 2,
       "range": 1,
       "movement": 1,
-      "hp": 5,
+      "max_hp": 5,
       "effects": [
         {
           "main": "draw(1)",
@@ -24,7 +24,7 @@
       "atk": 6,
       "range": 1,
       "movement": 1,
-      "hp": 6,
+      "max_hp": 6,
       "effects": [
       ]
     },
@@ -36,7 +36,7 @@
       "atk": 0,
       "range": 1,
       "movement": 1,
-      "hp": 6,
+      "max_hp": 6,
       "effects": [
         {
           "main": "heal(3)",
@@ -51,7 +51,7 @@
       "atk": 3,
       "range": 1,
       "movement": 1,
-      "hp": 3,
+      "max_hp": 3,
       "effects": []
     },
     {
@@ -61,7 +61,7 @@
       "atk": 2,
       "range": 2,
       "movement": 1,
-      "hp": 2,
+      "max_hp": 2,
       "effects": []
     },
     {
@@ -71,7 +71,7 @@
       "atk": 2,
       "range": 1,
       "movement": 2,
-      "hp": 2,
+      "max_hp": 2,
       "effects": []
     },
     {
@@ -81,7 +81,7 @@
       "atk": 1,
       "range": 1,
       "movement": 1,
-      "hp": 4,
+      "max_hp": 4,
       "effects": [
         {
           "main": "atkup(1)",

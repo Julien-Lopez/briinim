@@ -5,7 +5,7 @@
 namespace game
 {
 
-class EndTurn : public Action
+class EndTurn final : public Action
 {
 };
 

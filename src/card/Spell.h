@@ -5,7 +5,7 @@
 namespace card
 {
 
-class Spell : public Unit
+class Spell final : public Card
 {
 };
 

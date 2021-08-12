@@ -3,7 +3,7 @@
 namespace card
 {
 
-class Effect
+class Effect final
 {
 };
 

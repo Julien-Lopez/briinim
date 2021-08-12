@@ -5,7 +5,7 @@
 namespace player
 {
 
-class Human : public Brain
+class Human final : public Brain
 {
 public:
     // Implements Brain //

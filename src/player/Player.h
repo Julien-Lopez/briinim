@@ -1,6 +1,15 @@
 #pragma once
 
+#include "player/Deck.h"
+
 #include <string>
+
+namespace briinim
+{
+
+class CardsDB;
+
+} // namespace briinim
 
 namespace game
 {
@@ -13,21 +22,22 @@ namespace player
 {
 
 class Profile;
-class Deck;
 class Brain;
 
-class Player
+class Player final
 {
 public:
-    explicit Player(const Profile &profile, const unsigned deck_number, const Brain &brain);
+    explicit Player(const Profile &profile, const unsigned deck_number, const briinim::CardsDB &cards_db, const Brain &brain);
 
     const std::string &get_name() const;
+
+    const Deck &get_deck() const;
 
     game::Action next_action() const;
 
 private:
     const Profile &m_profile;
-    const Deck &m_deck;
+    const Deck m_deck;
     const Brain &m_brain;
 };
 

@@ -5,7 +5,7 @@
 namespace utils
 {
 
-class Logger
+class Logger final
 {
 public:
     /**

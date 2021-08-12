@@ -9,17 +9,24 @@ int main(void)
     briinim::CardsDB cards_db;
     player::Profile profile_1("Yannick");
     player::Profile profile_2("Sébastien");
+    player::DeckRecipe rush_recipe("Rush");
+    player::DeckRecipe control_recipe("Control");
 
-    profile_1.add_deck(1, player::Deck("Rush"));
-    profile_2.add_deck(1, player::Deck("Control"));
+    cards_db.load_from_file("../../data/cards.json");
+    rush_recipe.set_left_commander("Shaaron, the Resourceful");
+    rush_recipe.set_middle_commander("Lokar, the Brute");
+    rush_recipe.set_right_commander("Banh, the Godly");
+    control_recipe.set_left_commander("Shaaron, the Resourceful");
+    control_recipe.set_middle_commander("Lokar, the Brute");
+    control_recipe.set_right_commander("Banh, the Godly");
+    profile_1.add_deck_recipe(1, rush_recipe);
+    profile_2.add_deck_recipe(1, control_recipe);
 
     player::Human human_brain_1;
     player::Human human_brain_2;
-    player::Player player_1(profile_1, 1, human_brain_1);
-    player::Player player_2(profile_2, 1, human_brain_2);
-    game::Game game(player_1, player_2);
+    player::Player player_1(profile_1, 1, cards_db, human_brain_1);
+    player::Player player_2(profile_2, 1, cards_db, human_brain_2);
 
-    cards_db.load_from_file("../../data/cards.json");
-    game.start();
+    game::Game::start(player_1, player_2);
     return 0;
 }

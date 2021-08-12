@@ -14,7 +14,7 @@ class Card;
 namespace game
 {
 
-class Move : public Action
+class Move final : public Action
 {
 public:
     explicit Move(const card::Card &target, const std::size_t new_position);

@@ -53,6 +53,8 @@ add_executable(briinim
     src/player/brain/Brain.h
     src/player/brain/Human.cpp
     src/player/brain/Human.h
+    src/player/DeckRecipe.cpp
+    src/player/DeckRecipe.h
     src/player/Deck.cpp
     src/player/Deck.h
     src/player/Player.cpp

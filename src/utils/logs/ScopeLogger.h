@@ -5,9 +5,7 @@
 namespace utils
 {
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wpadded"
-class ScopeLogger
+class ScopeLogger final
 {
 public:
     explicit ScopeLogger(const Logger &logger, const Logger::Module module, std::string &&msg);
@@ -23,6 +21,5 @@ private:
     const Logger::Module m_module;
     const std::string m_msg;
 };
-#pragma clang diagnostic pop
 
 } // namespace utils

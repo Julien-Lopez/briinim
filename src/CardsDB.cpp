@@ -1,6 +1,8 @@
 #include "CardsDB.h"
 
 #include "card/Unit.h"
+#include "utils/logs/ScopeLogger.h"
+#include "globals.h"
 
 #include <nlohmann/json.hpp>
 #include <fstream>
@@ -12,28 +14,20 @@ std::vector<card::Effect> effects_from_json(const nlohmann::json &json);
 std::vector<card::Species> species_from_json(const nlohmann::json &json);
 std::vector<card::Attribute> attributes_from_json(const nlohmann::json &json);
 
-card::Card& CardsDB::operator[](const card::Card::key_t &key)
+std::unique_ptr<card::Card> CardsDB::operator[](const card::Card::key_t &key) const
 {
-    return m_db.at(key);
+    return m_db.at(key)();
 }
 
-const card::Card& CardsDB::operator[](const card::Card::key_t &key) const
+std::unique_ptr<card::Card> CardsDB::operator[](card::Card::key_t &&key) const
 {
-    return m_db.at(key);
-}
-
-card::Card& CardsDB::operator[](card::Card::key_t &&key)
-{
-    return m_db.at(key);
-}
-
-const card::Card& CardsDB::operator[](card::Card::key_t &&key) const
-{
-    return m_db.at(key);
+    return m_db.at(key)();
 }
 
 void CardsDB::load_from_file(const std::filesystem::path &file)
 {
+    const utils::ScopeLogger scope_logger(briinim::g_logger, utils::Logger::Module::Main, "CardsDB::load_from_file("
+        + file.string() + ")");
     std::ifstream stream(file);
     nlohmann::json json;
 
@@ -45,13 +39,15 @@ void CardsDB::load_from_file(const std::filesystem::path &file)
     {
         const auto name = unit[s_name_key].get<std::string>();
         const auto rank = unit.contains(s_rank_key) ? unit[s_rank_key].get<unsigned>() : 0U;
-        const auto atk = unit[s_atk_key].get<size_t>();
-        const auto range = unit[s_range_key].get<size_t>();
-        const auto movement = unit[s_movement_key].get<size_t>();
-        const auto hp = unit[s_hp_key].get<size_t>();
-        m_db.emplace(name, card::Unit(std::string(name), effects_from_json(unit[s_effects_key]), rank,
-            species_from_json(unit[s_species_key]), attributes_from_json(unit[s_attributes_key]), atk, range, movement,
-            hp));
+        const auto atk = unit[s_atk_key].get<unsigned>();
+        const auto range = unit[s_range_key].get<unsigned>();
+        const auto movement = unit[s_movement_key].get<unsigned>();
+        const auto max_hp = unit[s_max_hp_key].get<unsigned>();
+        m_db.emplace(name, [=]() {
+            return std::make_unique<card::Unit>(name, effects_from_json(unit[s_effects_key]), rank,
+                species_from_json(unit[s_species_key]), attributes_from_json(unit[s_attributes_key]), atk, range,
+                movement, max_hp);
+        });
     }
 }
 

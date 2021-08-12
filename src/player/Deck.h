@@ -1,25 +1,39 @@
 #pragma once
 
 #include "card/Card.h"
+#include "card/Unit.h"
 
-#include <unordered_map>
-#include <string>
+#include <deque>
+#include <memory>
+
+namespace briinim
+{
+
+class CardsDB;
+
+} // namespace briinim
 
 namespace player
 {
 
-class Deck
+class DeckRecipe;
+
+class Deck final
 {
 public:
-    explicit Deck(const std::string &name);
+    explicit Deck(const DeckRecipe &recipe, const briinim::CardsDB &cards_db);
 
-    void rename(const std::string &name);
-    void add_card(const card::Card::key_t &name);
-    void remove_card(const card::Card::key_t &name);
+    const card::Unit &get_left_commander() const;
+    const card::Unit &get_middle_commander() const;
+    const card::Unit &get_right_commander() const;
+
+    void shuffle();
 
 private:
-    std::string m_name;
-    std::unordered_map<card::Card::key_t, unsigned> m_cards;
+    std::deque<std::unique_ptr<card::Card>> m_cards;
+    const std::unique_ptr<card::Unit> m_left_commander;
+    const std::unique_ptr<card::Unit> m_middle_commander;
+    const std::unique_ptr<card::Unit> m_right_commander;
 };
 
 } // namespace player

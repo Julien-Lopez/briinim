@@ -10,13 +10,15 @@ namespace game
 class Game
 {
 public:
-    explicit Game(const player::Player &player_1, const player::Player &player_2);
+    enum class Status
+    {
+        Player1Won,
+        Player2Won,
+        Draw,
+        Cancelled,
+    };
 
-    void start() const;
-
-private:
-    const player::Player &m_player_1;
-    const player::Player &m_player_2;
+    static Status start(const player::Player &player_1, const player::Player &player_2);
 };
 
 } // namespace game

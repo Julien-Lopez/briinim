@@ -12,18 +12,21 @@ namespace card
 class Unit final : public Card
 {
 public:
-    Unit(const std::string name, const std::vector<Effect> effects, const size_t rank,
-        const std::vector<Species> species, const std::vector<Attribute> attributes, const size_t atk,
-        const size_t range, const size_t movement, const size_t hp);
+    Unit(const std::string name, const std::vector<Effect> effects, const unsigned rank,
+        const std::vector<Species> species, const std::vector<Attribute> attributes, const unsigned atk,
+        const unsigned range, const unsigned movement, const unsigned max_hp);
+
+    inline bool is_dead() const { return m_hp < 1; }
 
 private:
-    const size_t m_rank;
     const std::vector<Species> m_species;
     const std::vector<Attribute> m_attributes;
-    const size_t m_atk;
-    const size_t m_range;
-    const size_t m_movement;
-    const size_t m_hp;
+    const unsigned m_rank;
+    const unsigned m_atk;
+    const unsigned m_range;
+    const unsigned m_movement;
+    const unsigned m_max_hp;
+    const unsigned m_hp;
 };
 
 } // namespace card
