@@ -1,4 +1,5 @@
 #include "CardsDB.h"
+#include "game/Board.h"
 #include "game/Game.h"
 #include "player/Player.h"
 #include "player/Profile.h"
@@ -6,6 +7,7 @@
 
 int main(void)
 {
+    game::Board board;
     briinim::CardsDB cards_db;
     player::Profile profile_1("Yannick");
     player::Profile profile_2("Sébastien");
@@ -24,9 +26,11 @@ int main(void)
 
     player::Human human_brain_1;
     player::Human human_brain_2;
-    player::Player player_1(profile_1, 1, cards_db, human_brain_1);
-    player::Player player_2(profile_2, 1, cards_db, human_brain_2);
+    player::Deck deck_1(profile_1.get_deck_recipe(1), cards_db);
+    player::Deck deck_2(profile_2.get_deck_recipe(1), cards_db);
+    player::Player player_1(profile_1, deck_1, human_brain_1);
+    player::Player player_2(profile_2, deck_2, human_brain_2);
 
-    game::Game::start(player_1, player_2);
+    game::Game::start(board, player_1, player_2);
     return 0;
 }

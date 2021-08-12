@@ -5,14 +5,14 @@
 namespace player
 {
 
-game::Action Human::next_action() const
+std::unique_ptr<game::Action> Human::next_action() const
 {
-    return game::EndTurn();
+    return std::make_unique<game::EndTurn>();
 }
 
-std::optional<game::Action> Human::react_to_action(const game::Action &) const
+std::unique_ptr<game::Action> Human::react_to_action(const game::Action &) const
 {
-    return std::nullopt;
+    return nullptr;
 }
 
 } // namespace player

@@ -9,10 +9,10 @@ class Human final : public Brain
 {
 public:
     // Implements Brain //
-    virtual game::Action next_action() const override;
+    virtual std::unique_ptr<game::Action> next_action() const override;
 
     // Implements Reactor //
-    virtual std::optional<game::Action> react_to_action(const game::Action &action) const override;
+    virtual std::unique_ptr<game::Action> react_to_action(const game::Action &action) const override;
 };
 
 } // namespace player

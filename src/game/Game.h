@@ -1,5 +1,6 @@
 #pragma once
 
+#include "game/Board.h"
 #include "player/Player.h"
 
 #include <vector>
@@ -18,7 +19,7 @@ public:
         Cancelled,
     };
 
-    static Status start(const player::Player &player_1, const player::Player &player_2);
+    static Status start(game::Board &board, player::Player &player_1, player::Player &player_2);
 };
 
 } // namespace game

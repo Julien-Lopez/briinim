@@ -1,6 +1,6 @@
 #pragma once
 
-#include <optional>
+#include <memory>
 
 namespace game
 {
@@ -17,7 +17,7 @@ public:
     Reactor &operator=(const Reactor &) = delete;
     Reactor &operator=(Reactor &&) = delete;
 
-    virtual std::optional<game::Action> react_to_action(const game::Action &action) const = 0;
+    virtual std::unique_ptr<game::Action> react_to_action(const game::Action &action) const = 0;
 };
 
 } // namespace game

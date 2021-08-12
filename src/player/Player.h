@@ -3,6 +3,7 @@
 #include "player/Deck.h"
 
 #include <string>
+#include <memory>
 
 namespace briinim
 {
@@ -27,17 +28,17 @@ class Brain;
 class Player final
 {
 public:
-    explicit Player(const Profile &profile, const unsigned deck_number, const briinim::CardsDB &cards_db, const Brain &brain);
+    explicit Player(const Profile &profile, const Deck &deck, const Brain &brain);
 
     const std::string &get_name() const;
 
     const Deck &get_deck() const;
 
-    game::Action next_action() const;
+    std::unique_ptr<game::Action> next_action() const;
 
 private:
     const Profile &m_profile;
-    const Deck m_deck;
+    const Deck &m_deck;
     const Brain &m_brain;
 };
 

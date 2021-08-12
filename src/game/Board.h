@@ -14,8 +14,11 @@ namespace game
 
 class Board final
 {
+public:
+    card::Card *card_at(const std::size_t location) const;
+
 private:
-    std::array<std::reference_wrapper<card::Card>, 30U> m_spaces;
+    std::array<card::Card *, 30U> m_spaces;
 };
 
 } // namespace game

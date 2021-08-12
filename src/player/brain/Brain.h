@@ -2,6 +2,8 @@
 
 #include "game/Reactor.h"
 
+#include <memory>
+
 namespace player
 {
 
@@ -15,7 +17,7 @@ public:
     Brain &operator=(const Brain &) = delete;
     Brain &operator=(Brain &&) = delete;
 
-    virtual game::Action next_action() const = 0;
+    virtual std::unique_ptr<game::Action> next_action() const = 0;
 };
 
 } // namespace player

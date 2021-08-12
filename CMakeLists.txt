@@ -38,10 +38,13 @@ add_executable(briinim
     src/card/Spell.h
     src/card/Unit.cpp
     src/card/Unit.h
+    src/game/Board.cpp
     src/game/Board.h
     src/game/Game.cpp
     src/game/Game.h
     src/game/action/Action.h
+    src/game/action/Attack.cpp
+    src/game/action/Attack.h
     src/game/action/EndTurn.h
     src/game/action/Move.cpp
     src/game/action/Move.h
