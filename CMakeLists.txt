@@ -45,6 +45,8 @@ add_executable(briinim
     src/game/action/Action.h
     src/game/action/Attack.cpp
     src/game/action/Attack.h
+    src/game/action/Call.cpp
+    src/game/action/Call.h
     src/game/action/EndTurn.h
     src/game/action/Move.cpp
     src/game/action/Move.h
