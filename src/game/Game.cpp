@@ -39,6 +39,9 @@ Game::Status Game::start(void)
         return not player_1_lost and not player_2_lost;
     };
     unsigned turn = 1U;
+
+    m_ui.game_starts(m_board, m_player_1, m_player_2);
+
     bool current_player_is_player_1 = m_ui.decide_if_player_1_goes_first(m_player_1, m_player_2);
 
     while (game_is_on())

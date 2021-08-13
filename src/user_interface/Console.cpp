@@ -18,8 +18,6 @@ void Console::game_starts(const player::Player &player_1, const player::Player &
 bool Console::decide_if_player_1_goes_first(const player::Player &player_1, const player::Player &player_2) const
 {
     std::random_device device;
-
-    // Choose a random mean between 1 and 6
     std::default_random_engine engine(device());
     std::uniform_int_distribution<int> dist(0, 1);
     const bool player_1_goes_first = dist(engine) == 0;
