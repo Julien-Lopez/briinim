@@ -5,6 +5,13 @@
 
 #include <vector>
 
+namespace ui
+{
+
+class UserInterface;
+
+} // namespace ui
+
 namespace game
 {
 
@@ -19,7 +26,15 @@ public:
         Cancelled,
     };
 
-    static Status start(game::Board &board, player::Player &player_1, player::Player &player_2);
+    explicit Game(ui::UserInterface &ui, player::Player &player_1, player::Player &player_2);
+
+    Status start(void);
+
+private:
+    ui::UserInterface &m_ui;
+    player::Player &m_player_1;
+    player::Player &m_player_2;
+    game::Board m_board;
 };
 
 } // namespace game

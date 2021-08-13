@@ -4,6 +4,7 @@
 
 #include <string>
 #include <memory>
+#include <vector>
 
 namespace briinim
 {
@@ -16,8 +17,16 @@ namespace game
 {
 
 class Action;
+class Board;
 
 } // namespace game
+
+namespace ui
+{
+
+class UserInterface;
+
+} // namespace ui
 
 namespace player
 {
@@ -28,18 +37,27 @@ class Brain;
 class Player final
 {
 public:
-    explicit Player(const Profile &profile, const Deck &deck, const Brain &brain);
+    explicit Player(const Profile &profile, const Brain &brain, Deck &deck);
 
     const std::string &get_name() const;
 
     const Deck &get_deck() const;
 
-    std::unique_ptr<game::Action> next_action() const;
+    std::unique_ptr<game::Action> next_action(ui::UserInterface &ui, const game::Board &board,
+        const bool player_has_the_front) const;
+
+    void add_to_hand(std::unique_ptr<card::Card> card);
+    void draw(const unsigned nb);
+    std::unique_ptr<card::Card> remove_from_hand(const size_t position);
+
+    void add_to_discard_pile(std::unique_ptr<card::Card> card);
 
 private:
     const Profile &m_profile;
-    const Deck &m_deck;
     const Brain &m_brain;
+    Deck &m_deck;
+    std::vector<std::unique_ptr<card::Card>> m_hand;
+    std::deque<std::unique_ptr<card::Card>> m_discard_pile;
 };
 
 } // namespace player

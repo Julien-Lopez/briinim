@@ -23,6 +23,14 @@ Deck::Deck(const DeckRecipe &recipe, const briinim::CardsDB &cards_db)
     shuffle();
 }
 
+std::unique_ptr<card::Card> Deck::pop()
+{
+    auto card = std::move(m_cards.back());
+
+    m_cards.pop_back();
+    return card;
+}
+
 const card::Unit &Deck::get_left_commander() const
 {
     return *m_left_commander;

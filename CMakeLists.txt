@@ -66,6 +66,10 @@ add_executable(briinim
     src/player/Player.h
     src/player/Profile.cpp
     src/player/Profile.h
+    src/user_interface/Console.cpp
+    src/user_interface/Console.h
+    src/user_interface/UserInterface.cpp
+    src/user_interface/UserInterface.h
     src/utils/logs/Logger.cpp
     src/utils/logs/Logger.h
     src/utils/logs/ScopeLogger.cpp
