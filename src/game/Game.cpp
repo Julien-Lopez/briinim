@@ -6,6 +6,7 @@
 #include "player/brain/Brain.h"
 #include "player/Deck.h"
 #include "game/action/Action.h"
+#include "user_interface/UserInterface.h"
 
 namespace game
 {
@@ -38,8 +39,7 @@ Game::Status Game::start(void)
         return not player_1_lost and not player_2_lost;
     };
     unsigned turn = 1U;
-    // TODO: First player to play should be random
-    bool current_player_is_player_1 = true;
+    bool current_player_is_player_1 = m_ui.decide_if_player_1_goes_first();
 
     while (game_is_on())
     {

@@ -2,11 +2,22 @@
 
 #include "game/action/EndTurn.h"
 
+#include <random>
 #include <iostream>
 #include <regex>
 
 namespace ui
 {
+
+bool Console::decide_if_player_1_goes_first() const
+{
+    std::random_device device;
+
+    // Choose a random mean between 1 and 6
+    std::default_random_engine engine(device());
+    std::uniform_int_distribution<int> dist(0, 1);
+    return dist(engine) == 0;
+}
 
 std::unique_ptr<game::Action> Console::ask_for_human_action() const
 {
