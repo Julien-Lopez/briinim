@@ -39,18 +39,22 @@ Game::Status Game::start(void)
         return not player_1_lost and not player_2_lost;
     };
     unsigned turn = 1U;
-    bool current_player_is_player_1 = m_ui.decide_if_player_1_goes_first();
+    bool current_player_is_player_1 = m_ui.decide_if_player_1_goes_first(m_player_1, m_player_2);
 
     while (game_is_on())
     {
         auto &current_player = current_player_is_player_1 ? m_player_1 : m_player_2;
         auto &opponent = current_player_is_player_1 ? m_player_2 : m_player_1;
-        const auto action = current_player.next_action(m_ui, m_board, current_player_is_player_1);
 
-        while (execute_action(m_board, current_player, opponent, *action))
+        m_ui.turn_starts(current_player);
+
+        std::unique_ptr<game::Action> action = nullptr;
+
+        do
         {
+            action = current_player.next_action(m_ui, m_board, current_player_is_player_1);
             // TODO
-        }
+        } while (execute_action(m_board, current_player, opponent, *action));
 
         turn++;
         current_player_is_player_1 = not current_player_is_player_1;

@@ -2,6 +2,13 @@
 
 #include <memory>
 
+namespace player
+{
+
+class Player;
+
+} // namespace player
+
 namespace game
 {
 
@@ -22,7 +29,10 @@ public:
     UserInterface &operator=(const UserInterface &) = delete;
     UserInterface &operator=(UserInterface &&) = delete;
 
-    virtual bool decide_if_player_1_goes_first() const = 0;
+    virtual void game_starts(const player::Player &player_1, const player::Player &player_2) const = 0;
+    virtual bool decide_if_player_1_goes_first(const player::Player &player_1, const player::Player &player_2) const
+        = 0;
+    virtual void turn_starts(const player::Player &player) const = 0;
     virtual std::unique_ptr<game::Action> ask_for_human_action() const = 0;
 };
 
