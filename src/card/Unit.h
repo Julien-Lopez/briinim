@@ -12,7 +12,7 @@ namespace card
 class Unit final : public Card
 {
 public:
-    Unit(const std::string name, const std::vector<Effect> effects, const unsigned rank,
+    Unit(const size_t game_id, const std::string name, const std::vector<Effect> effects, const unsigned rank,
         const std::vector<Species> species, const std::vector<Attribute> attributes, const unsigned atk,
         const unsigned range, const unsigned movement, const unsigned max_hp);
 

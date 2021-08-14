@@ -14,14 +14,14 @@ std::vector<card::Effect> effects_from_json(const nlohmann::json &json);
 std::vector<card::Species> species_from_json(const nlohmann::json &json);
 std::vector<card::Attribute> attributes_from_json(const nlohmann::json &json);
 
-std::unique_ptr<card::Card> CardsDB::operator[](const card::Card::key_t &key) const
+std::unique_ptr<card::Card> CardsDB::generate_card(const size_t id, const card::Card::key_t &key) const
 {
-    return m_db.at(key)();
+    return m_db.at(key)(id);
 }
 
-std::unique_ptr<card::Card> CardsDB::operator[](card::Card::key_t &&key) const
+std::unique_ptr<card::Card> CardsDB::generate_card(const size_t id, card::Card::key_t &&key) const
 {
-    return m_db.at(key)();
+    return m_db.at(key)(id);
 }
 
 void CardsDB::load_from_file(const std::filesystem::path &file)
@@ -43,8 +43,8 @@ void CardsDB::load_from_file(const std::filesystem::path &file)
         const auto range = unit[s_range_key].get<unsigned>();
         const auto movement = unit[s_movement_key].get<unsigned>();
         const auto max_hp = unit[s_max_hp_key].get<unsigned>();
-        m_db.emplace(name, [=]() {
-            return std::make_unique<card::Unit>(name, effects_from_json(unit[s_effects_key]), rank,
+        m_db.emplace(name, [=](const size_t id) {
+            return std::make_unique<card::Unit>(id, name, effects_from_json(unit[s_effects_key]), rank,
                 species_from_json(unit[s_species_key]), attributes_from_json(unit[s_attributes_key]), atk, range,
                 movement, max_hp);
         });

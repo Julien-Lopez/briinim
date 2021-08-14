@@ -5,6 +5,7 @@
 
 #include <deque>
 #include <memory>
+#include <functional>
 
 namespace briinim
 {
@@ -21,7 +22,8 @@ class DeckRecipe;
 class Deck final
 {
 public:
-    explicit Deck(const DeckRecipe &recipe, const briinim::CardsDB &cards_db);
+    explicit Deck(const std::function<size_t(void)> card_id_generator, const DeckRecipe &recipe,
+        const briinim::CardsDB &cards_db);
 
     std::unique_ptr<card::Card> pop();
 

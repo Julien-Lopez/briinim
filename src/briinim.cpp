@@ -25,8 +25,12 @@ int main(void)
 
     player::Human human_brain_1;
     player::Human human_brain_2;
-    player::Deck deck_1(profile_1.get_deck_recipe(1), cards_db);
-    player::Deck deck_2(profile_2.get_deck_recipe(1), cards_db);
+    size_t id = 0;
+    const auto id_generator = [&id](void) {
+        return id++;
+    };
+    player::Deck deck_1(id_generator, profile_1.get_deck_recipe(1), cards_db);
+    player::Deck deck_2(id_generator, profile_2.get_deck_recipe(1), cards_db);
     player::Player player_1(profile_1, human_brain_1, deck_1);
     player::Player player_2(profile_2, human_brain_2, deck_2);
     ui::Console console;

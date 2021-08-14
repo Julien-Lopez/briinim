@@ -25,6 +25,11 @@ const Deck &Player::get_deck() const
     return m_deck;
 }
 
+const std::vector<std::unique_ptr<card::Card>> &Player::get_hand() const
+{
+    return m_hand;
+}
+
 std::unique_ptr<game::Action> Player::next_action(ui::UserInterface &ui, const game::Board &board,
     const bool player_has_the_front) const
 {

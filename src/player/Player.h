@@ -43,6 +43,8 @@ public:
 
     const Deck &get_deck() const;
 
+    const std::vector<std::unique_ptr<card::Card>> &get_hand() const;
+
     std::unique_ptr<game::Action> next_action(ui::UserInterface &ui, const game::Board &board,
         const bool player_has_the_front) const;
 

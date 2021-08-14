@@ -15,10 +15,10 @@ namespace game
 class Board final
 {
 public:
-    card::Card *card_at(const std::size_t location) const;
+    inline card::Card *operator[](const std::size_t location) const { return m_spaces[location]; }
 
 private:
-    std::array<card::Card *, 30U> m_spaces;
+    std::array<card::Card *, 30U> m_spaces{nullptr};
 };
 
 } // namespace game

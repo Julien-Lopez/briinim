@@ -13,6 +13,7 @@ namespace game
 {
 
 class Action;
+class Board;
 
 } // namespace game
 
@@ -29,7 +30,8 @@ public:
     UserInterface &operator=(const UserInterface &) = delete;
     UserInterface &operator=(UserInterface &&) = delete;
 
-    virtual void game_starts(const player::Player &player_1, const player::Player &player_2) const = 0;
+    virtual void game_starts(const game::Board &board, const player::Player &player_1, const player::Player &player_2)
+        const = 0;
     virtual bool decide_if_player_1_goes_first(const player::Player &player_1, const player::Player &player_2) const
         = 0;
     virtual void turn_starts(const player::Player &player) const = 0;
