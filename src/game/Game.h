@@ -28,7 +28,7 @@ public:
 
     explicit Game(ui::UserInterface &ui, player::Player &player_1, player::Player &player_2);
 
-    Status start(void);
+    Status start();
 
 private:
     ui::UserInterface &m_ui;
