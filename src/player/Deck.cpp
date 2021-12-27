@@ -11,7 +11,7 @@
 namespace player
 {
 
-Deck::Deck(const std::function<size_t(void)> card_id_generator, const DeckRecipe &recipe,
+Deck::Deck(const std::function<size_t()> card_id_generator, const DeckRecipe &recipe,
     const briinim::CardsDB &cards_db)
     : m_left_commander(static_cast<card::Unit *>(cards_db.generate_card(card_id_generator(),
         recipe.get_left_commander()).release())),

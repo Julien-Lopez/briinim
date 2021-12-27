@@ -28,7 +28,7 @@ class DeckRecipe;
 class Deck final
 {
 public:
-    explicit Deck(const std::function<size_t(void)> card_id_generator, const DeckRecipe &recipe,
+    explicit Deck(const std::function<size_t()> card_id_generator, const DeckRecipe &recipe,
         const briinim::CardsDB &cards_db);
 
     std::unique_ptr<card::Card> pop();
