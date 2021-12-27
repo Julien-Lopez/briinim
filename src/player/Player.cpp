@@ -1,6 +1,7 @@
 #include "Player.h"
 
 #include "Profile.h"
+#include "Deck.h"
 
 #include "game/action/Action.h"
 #include "player/brain/Brain.h"

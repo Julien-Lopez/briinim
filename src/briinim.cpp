@@ -1,6 +1,7 @@
 #include "CardsDB.h"
 #include "game/Game.h"
 #include "player/Player.h"
+#include "player/Deck.h"
 #include "player/Profile.h"
 #include "player/brain/Human.h"
 #include "user_interface/Console.h"

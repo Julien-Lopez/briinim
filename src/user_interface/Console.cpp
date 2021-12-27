@@ -1,13 +1,14 @@
 #include "Console.h"
 
-#include "game/Board.h"
-#include "game/action/EndTurn.h"
-#include "player/Player.h"
-
 #include <random>
 #include <iostream>
 #include <iomanip>
 #include <regex>
+
+#include "game/Board.h"
+#include "game/action/EndTurn.h"
+#include "player/Player.h"
+#include "card/Card.h"
 
 namespace ui
 {
@@ -35,7 +36,7 @@ static void print_board(const game::Board &board)
     const auto print_cards = [&board](const char *prefix, const size_t begin, const size_t end) {
         for (size_t pos = begin; pos < end; pos++)
         {
-            std::cout << prefix << std::setw(3) << (board[pos] == nullptr ? "" : std::to_string(board[pos]->get_id()));
+            std::cout << prefix << std::setw(3) << (board[pos] == nullptr ? "" : board[pos]->operator std::string().substr(0, 3));
         }
     };
     // Line 1

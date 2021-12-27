@@ -1,6 +1,5 @@
 #pragma once
 
-#include "card/Card.h"
 #include "card/Unit.h"
 
 #include <deque>
@@ -13,6 +12,13 @@ namespace briinim
 class CardsDB;
 
 } // namespace briinim
+
+namespace card
+{
+
+class Card;
+
+} // namespace card
 
 namespace player
 {

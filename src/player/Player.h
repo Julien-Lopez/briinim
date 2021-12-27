@@ -1,10 +1,9 @@
 #pragma once
 
-#include "player/Deck.h"
-
 #include <string>
 #include <memory>
 #include <vector>
+#include <deque>
 
 namespace briinim
 {
@@ -12,6 +11,13 @@ namespace briinim
 class CardsDB;
 
 } // namespace briinim
+
+namespace card
+{
+
+class Card;
+
+} // namespace card
 
 namespace game
 {
@@ -33,6 +39,7 @@ namespace player
 
 class Profile;
 class Brain;
+class Deck;
 
 class Player final
 {
