@@ -1,6 +1,7 @@
 #include "CardsDB.h"
 
 #include "card/Unit.h"
+#include "card/Spell.h"
 #include "utils/logs/ScopeLogger.h"
 #include "globals.h"
 
@@ -47,6 +48,16 @@ void CardsDB::load_from_file(const std::filesystem::path &file)
             return std::make_unique<card::Unit>(id, name, effects_from_json(unit[s_effects_key]), rank,
                 species_from_json(unit[s_species_key]), attributes_from_json(unit[s_attributes_key]), atk, range,
                 movement, max_hp);
+        });
+    }
+
+    const auto &spells = json[s_spells_key];
+
+    for (const auto &spell : spells)
+    {
+        const auto name = spell[s_name_key].get<std::string>();
+        m_db.emplace(name, [=](const size_t id) {
+            return std::make_unique<card::Spell>(id, name, effects_from_json(spell[s_effects_key]));
         });
     }
 }

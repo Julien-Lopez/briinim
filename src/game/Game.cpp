@@ -15,7 +15,8 @@ namespace game
 Game::Game(ui::UserInterface &ui, player::Player &player_1, player::Player &player_2)
     : m_ui(ui),
       m_player_1(player_1),
-      m_player_2(player_2)
+      m_player_2(player_2),
+      m_cards_in_initial_hand(3U)
 {
 }
 
@@ -35,6 +36,9 @@ Game::Status Game::start()
     m_board[27U] = &m_player_2.get_deck().get_right_commander();
     m_board[28U] = &m_player_2.get_deck().get_middle_commander();
     m_board[29U] = &m_player_2.get_deck().get_left_commander();
+
+    m_player_1.draw(m_cards_in_initial_hand);
+    m_player_2.draw(m_cards_in_initial_hand);
 
     m_ui.game_starts(m_board, m_player_1, m_player_2);
     return game_loop();

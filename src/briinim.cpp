@@ -18,9 +18,25 @@ int main(void)
     rush_recipe.set_left_commander("Shaaron, the Resourceful");
     rush_recipe.set_middle_commander("Lokar, the Brute");
     rush_recipe.set_right_commander("Banh, the Godly");
+    rush_recipe.add_card("Archer");
+    rush_recipe.add_card("Archer");
+    rush_recipe.add_card("Archer");
+    rush_recipe.add_card("Archer");
+    rush_recipe.add_card("Rider");
+    rush_recipe.add_card("Rider");
+    rush_recipe.add_card("Rider");
+    rush_recipe.add_card("Rider");
     control_recipe.set_left_commander("Shaaron, the Resourceful");
     control_recipe.set_middle_commander("Lokar, the Brute");
     control_recipe.set_right_commander("Banh, the Godly");
+    control_recipe.add_card("Heal");
+    control_recipe.add_card("Heal");
+    control_recipe.add_card("Heal");
+    control_recipe.add_card("Barbarian");
+    control_recipe.add_card("Barbarian");
+    control_recipe.add_card("Barbarian");
+    control_recipe.add_card("Mercenary");
+    control_recipe.add_card("Mercenary");
     profile_1.add_deck_recipe(1, rush_recipe);
     profile_2.add_deck_recipe(1, control_recipe);
 

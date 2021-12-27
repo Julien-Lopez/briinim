@@ -21,11 +21,11 @@ static void print_hand(const std::vector<std::unique_ptr<card::Card>> &hand)
         return;
     }
 
-    std::cout << hand[0]->get_id();
+    std::cout << hand[0]->operator std::string();
 
     for (auto it = hand.cbegin() + 1; it != hand.cend(); it++)
     {
-        std::cout << " | " << (*it)->get_id();
+        std::cout << " | " << (*it)->operator std::string();
     }
 
     std::cout << '\n';

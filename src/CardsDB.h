@@ -21,6 +21,8 @@ public:
 
 private:
     static constexpr const char *s_units_key = "units";
+    static constexpr const char *s_spells_key = "spells";
+
     static constexpr const char *s_effects_key = "effects";
     static constexpr const char *s_name_key = "name";
     static constexpr const char *s_rank_key = "rank";

@@ -37,6 +37,8 @@ private:
     player::Player &m_player_1;
     player::Player &m_player_2;
     game::Board m_board;
+
+    unsigned m_cards_in_initial_hand;
 };
 
 } // namespace game
