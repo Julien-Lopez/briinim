@@ -35,6 +35,7 @@ add_executable(briinim
     src/CardsDB.h
     src/card/Species.cpp
     src/card/Species.h
+    src/card/Spell.cpp
     src/card/Spell.h
     src/card/Unit.cpp
     src/card/Unit.h
